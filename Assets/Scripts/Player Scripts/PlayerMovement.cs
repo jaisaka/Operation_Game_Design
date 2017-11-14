@@ -18,8 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (Input.mousePresent) {
-			mousePos = Input.mousePosition;
-			mousePos = Camera.main.ScreenToWorldPoint (mousePos);
+			mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition); //jai and his un-compact code should die
 			rotation = Quaternion.LookRotation(transform.position - mousePos, Vector3.forward);
 			transform.rotation = rotation;
 			transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
