@@ -108,6 +108,26 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &307641836 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1306740000156542, guid: 619294165206ed04c90fff551ec68803,
+    type: 2}
+  m_PrefabInternal: {fileID: 1086871533}
+--- !u!58 &307641837
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 307641836}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &792860452
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +139,7 @@ GameObject:
   - component: {fileID: 792860453}
   - component: {fileID: 792860455}
   - component: {fileID: 792860456}
+  - component: {fileID: 792860457}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -220,6 +241,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &792860457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 792860452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500d6b52d297748f18e3046b4c812af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1306740000156542, guid: 619294165206ed04c90fff551ec68803, type: 2}
 --- !u!1001 &1086871533
 Prefab:
   m_ObjectHideFlags: 0
@@ -227,41 +260,37 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4768404221639880, guid: 619294165206ed04c90fff551ec68803, type: 2}
+    - target: {fileID: 4580041046518062, guid: 619294165206ed04c90fff551ec68803, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4768404221639880, guid: 619294165206ed04c90fff551ec68803, type: 2}
+    - target: {fileID: 4580041046518062, guid: 619294165206ed04c90fff551ec68803, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4768404221639880, guid: 619294165206ed04c90fff551ec68803, type: 2}
+    - target: {fileID: 4580041046518062, guid: 619294165206ed04c90fff551ec68803, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4768404221639880, guid: 619294165206ed04c90fff551ec68803, type: 2}
+    - target: {fileID: 4580041046518062, guid: 619294165206ed04c90fff551ec68803, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4768404221639880, guid: 619294165206ed04c90fff551ec68803, type: 2}
+    - target: {fileID: 4580041046518062, guid: 619294165206ed04c90fff551ec68803, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4768404221639880, guid: 619294165206ed04c90fff551ec68803, type: 2}
+    - target: {fileID: 4580041046518062, guid: 619294165206ed04c90fff551ec68803, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4768404221639880, guid: 619294165206ed04c90fff551ec68803, type: 2}
+    - target: {fileID: 4580041046518062, guid: 619294165206ed04c90fff551ec68803, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4768404221639880, guid: 619294165206ed04c90fff551ec68803, type: 2}
+    - target: {fileID: 4580041046518062, guid: 619294165206ed04c90fff551ec68803, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863818945668764, guid: 619294165206ed04c90fff551ec68803, type: 2}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 619294165206ed04c90fff551ec68803, type: 2}
