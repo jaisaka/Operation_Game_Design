@@ -42,7 +42,7 @@ public class EnemyStats : MonoBehaviour {
             else
             {
                 yield return null;
-            }
+            } 
         }
     }
 	IEnumerator ResetJustHurt () {

@@ -17,6 +17,10 @@ public class PlayerStats : MonoBehaviour {
         {
             currAmmo = maxAmmo;
         }
+		if (currHealth <= 9) 
+		{
+			GameObject.Destroy (gameObject);
+		}
 	}
     public void ReduceAmmo()
     {
@@ -34,4 +38,8 @@ public class PlayerStats : MonoBehaviour {
     {
         currAmmo += ammoToAdd;
     }
+	public void TakeDamage (int damage)
+	{
+		currHealth -= damage;
+	}
 }

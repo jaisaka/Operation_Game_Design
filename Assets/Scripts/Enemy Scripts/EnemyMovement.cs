@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour {
 	void Update () {
 		transform.LookAt (playerTransform);
 		transform.Rotate (new Vector3 (0, -90, 0), Space.Self);
-		if (Vector3.Distance (transform.position, playerTransform.position) > 1) {
+		if (Vector3.Distance (transform.position, playerTransform.position) > .25) {
 			transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
 		}
 	}

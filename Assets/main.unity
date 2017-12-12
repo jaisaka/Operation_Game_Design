@@ -133,6 +133,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &169600492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 169600490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5f0343c5ac4492c9cda7ef86eda3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &307641836 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1306740000156542, guid: 619294165206ed04c90fff551ec68803,
@@ -200,7 +211,7 @@ Prefab:
     - target: {fileID: 212601991141713752, guid: ab1e0cebb6068e24197299bf58724c19,
         type: 2}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
