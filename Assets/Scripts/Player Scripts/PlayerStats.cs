@@ -13,7 +13,6 @@ public class PlayerStats : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(currAmmo);
         if (currAmmo > maxAmmo)
         {
             currAmmo = maxAmmo;

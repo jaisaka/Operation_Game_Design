@@ -8,11 +8,12 @@ public class PlayerMovement : MonoBehaviour {
 	Quaternion rotation;
 	bool running;
 	Vector2 pos;
-	Vector3 mousePos;
+	Vector3 mousePos, cameraOffset;
 	// Use this for initialization
 	void Start () {
 		movementSpeed = .05f;
 		pos = new Vector2 (0,0);
+		cameraOffset = Camera.main.transform.position - gameObject.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 		xTrans = Input.GetAxis ("Horizontal") * movementSpeed;
 		yTrans = Input.GetAxis ("Vertical") * movementSpeed;
 		pos = new Vector2 (pos.x + xTrans, pos.y + yTrans);
-		if (pos.y > Camera.main.orthographicSize) {
+		/*if (pos.y > Camera.main.orthographicSize) {
 			pos.y = -Camera.main.orthographicSize;
 		}
 		if (pos.y < -Camera.main.orthographicSize) {
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		if (pos.x < -orthoWidth) {
 			pos.x = orthoWidth;
-		}
+		}*/
 		transform.position = pos;
 		if (Input.GetKeyDown (KeyCode.LeftShift)) {
 			movementSpeed = .1f;
@@ -53,5 +54,9 @@ public class PlayerMovement : MonoBehaviour {
 		if (!running) {
 			movementSpeed = .05f;
 		}
+	}
+	void LateUpdate()
+	{
+		Camera.main.transform.position = gameObject.transform.position + cameraOffset;
 	}
 }

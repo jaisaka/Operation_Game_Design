@@ -24,6 +24,7 @@ public class BulletScript : MonoBehaviour {
 		timer = 0;
 		gameObject.transform.Rotate (new Vector3 (0, 0, 90));
         pStats.ReduceAmmo();
+		Debug.Log (pStats.GetAmmo ());
 	}
 	
 	// Update is called once per frame
