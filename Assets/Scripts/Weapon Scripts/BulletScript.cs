@@ -40,18 +40,16 @@ public class BulletScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemies")
-        {
-            try
-            {
-                collision.gameObject.GetComponent<EnemyStats>().TakeDamage(dmg);
-                Debug.Log("Damaged enemy for: " + dmg);
-            }
-            catch (Exception e)
-            {
-                debug += "\n" + e;
-            }
-            GameObject.Destroy(gameObject);
-        }
+		if (collision.tag != "Player") {
+			try {
+				collision.gameObject.GetComponent<EnemyStats> ().TakeDamage (dmg);
+				Debug.Log ("Damaged enemy for: " + dmg);
+				GameObject.Destroy (gameObject);
+			} catch (Exception e) {
+				debug += "\n" + e;
+			}
+			GameObject.Destroy (gameObject);
+		}
+
     }
 }

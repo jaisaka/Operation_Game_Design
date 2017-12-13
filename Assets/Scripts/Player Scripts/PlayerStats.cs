@@ -17,9 +17,10 @@ public class PlayerStats : MonoBehaviour {
         {
             currAmmo = maxAmmo;
         }
-		if (currHealth <= 9) 
+		if (currHealth <= 0) 
 		{
-			GameObject.Destroy (gameObject);
+			transform.position = new Vector3 (0, 0, 0);
+			currHealth = maxHealth;
 		}
 	}
     public void ReduceAmmo()
