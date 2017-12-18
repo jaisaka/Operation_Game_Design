@@ -58,6 +58,13 @@ public class PlayerShoot : MonoBehaviour {
     IEnumerator Reload()
     {
         yield return new WaitForSeconds(1);
-        pStats.AddAmmo(pStats.GetMaxAmmo() - pStats.GetAmmo());
+		if ((pStats.GetMaxAmmo () - pStats.GetAmmo()) <= pStats.GetAmmoStored ()) {
+			pStats.AddAmmo (pStats.GetMaxAmmo () - pStats.GetAmmo ());
+		}/*else {
+			
+		}*/
     }
+	/*IEnumerator DisplayMessageForSeconds (string message, float seconds){
+		
+	}*/
 }
