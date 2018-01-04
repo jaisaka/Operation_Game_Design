@@ -14,9 +14,9 @@ public class EnemyAttack : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.tag == "Player") 
+		if (other.gameObject.tag == "Player") 
 		{
 			Debug.Log ("Hit player, damaging for 100");
 			pStats.TakeDamage (100);

@@ -30,7 +30,7 @@ public class BulletScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		gameObject.transform.Translate (.1f, 0, 0);
+		gameObject.transform.Translate (.4f, 0, 0);
 		timer += Time.deltaTime;
 		if (timer > 2) 
 		{

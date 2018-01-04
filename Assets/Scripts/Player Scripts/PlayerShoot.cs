@@ -48,12 +48,18 @@ public class PlayerShoot : MonoBehaviour {
         return fireModeIndex;
     }
     IEnumerator Burst()
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            InstantiateBullet();
-            yield return new WaitForSeconds(.1f);
-        }
+	{
+		if (pStats.GetAmmo () >= 3) {
+			for (int i = 0; i < 3; i++) {
+				InstantiateBullet ();
+				yield return new WaitForSeconds (.1f);
+			}
+		}else {
+			for (int i = 0; i < pStats.GetAmmo(); i++){
+				InstantiateBullet ();
+				yield return new WaitForSeconds (.1f);
+			}
+		}
     }
     IEnumerator Reload()
     {

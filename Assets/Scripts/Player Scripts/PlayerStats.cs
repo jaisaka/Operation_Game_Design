@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
     int maxHealth, currHealth, maxAmmo, currAmmo, currAmmoStored;
+	string debug;
 	// Use this for initialization
 	void Start () {
         maxHealth = 100;
@@ -20,6 +22,7 @@ public class PlayerStats : MonoBehaviour {
         }
 		if (currAmmoStored > maxAmmo) {
 			currAmmoStored = maxAmmo;
+			Debug.Log ("Ammo stored: " + currAmmoStored);
 		}
 		if (currHealth <= 0) 
 		{
@@ -27,8 +30,16 @@ public class PlayerStats : MonoBehaviour {
 			currHealth = maxHealth;
 		}
 	}
-	void OnTriggerEnter(){
-		
+	void OnTriggerEnter2D(Collider2D other){
+		try { 
+			if (other.gameObject.GetComponent<StatLootBox>().type == "ammo") {
+				AddToStoredAmmo (other.gameObject.GetComponent<StatLootBox>().boost);
+				GameObject.Destroy(other.gameObject);
+			}
+		}
+		catch (Exception e) {
+			debug += " " + e;
+		} 
 	}
     public void ReduceAmmo()
     {
@@ -51,6 +62,11 @@ public class PlayerStats : MonoBehaviour {
 		currAmmoStored -= ammoToAdd;
 		Debug.Log ("Ammo stored: " + currAmmoStored);
     }
+	public void AddToStoredAmmo(int amountToAdd)
+	{
+		currAmmoStored += amountToAdd;
+		Debug.Log ("Ammo stored: " + currAmmoStored);
+	}
 	public void TakeDamage (int damage)
 	{
 		currHealth -= damage;
