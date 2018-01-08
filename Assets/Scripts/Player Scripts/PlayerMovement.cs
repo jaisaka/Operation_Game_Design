@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	[SerializeField]
+	PlayerStats pStats;
 	float movementSpeed, xTrans, yTrans;
 	Quaternion rotation;
 	bool running;
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	Vector3 mousePos, cameraOffset;
 	// Use this for initialization
 	void Start () {
+		pStats = gameObject.GetComponent<PlayerStats>();
 		movementSpeed = .05f;
 		pos = new Vector2 (0,0);
 		cameraOffset = Camera.main.transform.position - gameObject.transform.position;
@@ -44,11 +46,11 @@ public class PlayerMovement : MonoBehaviour {
 			pos.x = orthoWidth;
 		}*/
 		transform.position = pos;
-		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+		if (Input.GetKeyDown (KeyCode.LeftShift) && pStats.GetStamina() > 0) {
 			movementSpeed = .1f;
 			running = true;
 		}
-		if (Input.GetKeyUp (KeyCode.LeftShift)) {
+		if (Input.GetKeyUp (KeyCode.LeftShift) || pStats.GetStamina() < 0) {
 			running = false;
 		}
 		if (!running) {
@@ -58,5 +60,8 @@ public class PlayerMovement : MonoBehaviour {
 	void LateUpdate()
 	{
 		Camera.main.transform.position = gameObject.transform.position + cameraOffset;
+	}
+	public bool GetRunning(){
+		return running;
 	}
 }

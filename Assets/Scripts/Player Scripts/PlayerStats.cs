@@ -4,15 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
-    int maxHealth, currHealth, maxAmmo, currAmmo, currAmmoStored;
+	PlayerMovement pMov;
+	int maxHealth, currHealth, maxAmmo, currAmmo, currAmmoStored; 
+	public int maxStamina;
+	public int currStamina;
 	string debug;
 	// Use this for initialization
 	void Start () {
+		pMov = gameObject.GetComponent<PlayerMovement> ();
         maxHealth = 100;
         currHealth = maxHealth;
         maxAmmo = 100;
         currAmmo = maxAmmo;
 		currAmmoStored = maxAmmo;
+		maxStamina = 100;
+		currStamina = maxStamina;
 	}
 	// Update is called once per frame
 	void Update () {
@@ -28,6 +34,9 @@ public class PlayerStats : MonoBehaviour {
 		{
 			transform.position = new Vector3 (0, 0, 0);
 			currHealth = maxHealth;
+		}
+		if (pMov.GetRunning ()) {
+			currStamina -= 1;
 		}
 	}
 	void OnTriggerEnter2D(Collider2D other){
@@ -70,5 +79,9 @@ public class PlayerStats : MonoBehaviour {
 	public void TakeDamage (int damage)
 	{
 		currHealth -= damage;
+	}
+	public int GetStamina ()
+	{
+		return currStamina;
 	}
 }
