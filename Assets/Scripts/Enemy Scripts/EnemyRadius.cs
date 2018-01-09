@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyRadius : MonoBehaviour {
+    [SerializeField]
 	bool triggered;
-
-	void OnTriggerEnter2D(Collider2D other)
+    
+    void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Player") 
 		{
@@ -18,4 +19,8 @@ public class EnemyRadius : MonoBehaviour {
 	{
 		return triggered;
 	}
+    public void SetTriggered(bool val)
+    {
+        triggered = val;
+    }
 }

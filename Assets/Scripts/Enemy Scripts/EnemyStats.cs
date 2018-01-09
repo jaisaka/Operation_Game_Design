@@ -6,9 +6,11 @@ public class EnemyStats : MonoBehaviour {
 	[SerializeField]
     int maxHealth, currHealth;
 	float timer;
-	public bool justHurt;
+	bool justHurt;
+    EnemyRadius enRad;
 	// Use this for initialization
 	void Start () {
+        enRad = gameObject.GetComponentInChildren<EnemyRadius>();
         maxHealth = 100;
         currHealth = maxHealth;
 		justHurt = false;
@@ -26,8 +28,10 @@ public class EnemyStats : MonoBehaviour {
     public void TakeDamage(int dmg)
     {
         currHealth -= dmg;
-		if (!justHurt) {
+		if (!justHurt)
+        {
 			justHurt = true;
+            enRad.SetTriggered(true);
 		}
     }
     IEnumerator RegenHealth()
@@ -55,4 +59,8 @@ public class EnemyStats : MonoBehaviour {
 			}
 		}
 	}
+    public bool GetJustHurt()
+    {
+        return justHurt;
+    }
 }
