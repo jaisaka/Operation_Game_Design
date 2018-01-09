@@ -30,7 +30,7 @@ public class BulletScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		gameObject.transform.Translate (.4f, 0, 0);
+		gameObject.transform.Translate (.2f, 0, 0);
 		timer += Time.deltaTime;
 		if (timer > 2) 
 		{
@@ -40,14 +40,18 @@ public class BulletScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-		if (collision.tag != "Player") {
-			try {
+		if (collision.tag == "Enemies") 
+		{
+			try 
+			{
 				collision.gameObject.GetComponent<EnemyStats> ().TakeDamage (dmg);
 				Debug.Log ("Damaged enemy for: " + dmg);
 				GameObject.Destroy (gameObject);
 			} catch (Exception e) {
 				debug += "\n" + e;
 			}
+		}
+		if (collision.tag != "Player" && collision.tag != "EnemyRadius") {
 			GameObject.Destroy (gameObject);
 		}
 
