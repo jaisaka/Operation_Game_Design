@@ -45,6 +45,7 @@ public class BulletScript : MonoBehaviour {
 			try 
 			{
 				collision.gameObject.GetComponent<EnemyStats> ().TakeDamage (dmg);
+				collision.gameObject.GetComponentInChildren<EnemyRadius>().SetTriggered(true);
 				Debug.Log ("Damaged enemy for: " + dmg);
 				GameObject.Destroy (gameObject);
 			} catch (Exception e) {
