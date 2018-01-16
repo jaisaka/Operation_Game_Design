@@ -6,10 +6,13 @@ public class PlayerShoot : MonoBehaviour {
 	public GameObject bullet;
 	public int fireModeIndex;
     PlayerStats pStats;
+	bool justFired;
+	float timer;
 	// Use this for initialization
 	void Start () {
         pStats = gameObject.GetComponent<PlayerStats>();
 		fireModeIndex = 0;
+		timer = 0;
 	}
 	// Update is called once per frame
 	void Update () {
@@ -21,8 +24,9 @@ public class PlayerShoot : MonoBehaviour {
 				fireModeIndex = 0;
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.Space) && fireModeIndex == 0 && pStats.GetAmmo() > 0) {
+		if (Input.GetKeyDown (KeyCode.Space) && fireModeIndex == 0 && pStats.GetAmmo() > 0 && !justFired) {
 			InstantiateBullet ();
+			justFired = true;
 		}
 		if (Input.GetKey (KeyCode.Space) && fireModeIndex == 1 && pStats.GetAmmo() > 0) {
 			InstantiateBullet ();
@@ -34,6 +38,14 @@ public class PlayerShoot : MonoBehaviour {
         {
             StartCoroutine(Reload());
         }
+
+		if (justFired) {
+			timer += Time.deltaTime;
+			if (timer > .2f) {
+				justFired = false;
+				timer = 0;
+			}
+		}
 	}
     void InstantiateBullet()
     {
