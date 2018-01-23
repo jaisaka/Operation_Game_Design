@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 	PlayerStats pStats;
 	float movementSpeed, xTrans, yTrans;
 	Quaternion rotation;
-	bool running;
+	bool running, sneaking;
 	Vector2 pos;
 	Vector3 mousePos, cameraOffset;
 	// Use this for initialization
@@ -53,7 +53,14 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.LeftShift) || pStats.GetStamina() < 0) {
 			running = false;
 		}
-		if (!running) {
+		if (Input.GetKeyDown (KeyCode.Z)) {
+			movementSpeed = .025f;
+			sneaking = true;
+		}
+		if (Input.GetKeyUp (KeyCode.Z)) {
+			sneaking = false;
+		}
+		if (!running || !sneaking) {
 			movementSpeed = .05f;
 		}
 	}
