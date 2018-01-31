@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.Z)) {
 			sneaking = false;
 		}
-		if (!running || !sneaking) {
+		if (!running && !sneaking) {
 			movementSpeed = .05f;
 		}
 	}
@@ -70,5 +70,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	public bool GetRunning(){
 		return running;
+	}
+	public bool GetSneaking(){
+		return sneaking;
 	}
 }

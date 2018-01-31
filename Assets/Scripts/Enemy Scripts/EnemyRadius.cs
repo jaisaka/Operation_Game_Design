@@ -6,12 +6,14 @@ public class EnemyRadius : MonoBehaviour {
     [SerializeField]
 	bool triggered;
     
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.tag == "Player") 
 		{
-			Debug.Log ("Enemy is Triggered");
-			triggered = true;
+			if (!other.gameObject.GetComponent<PlayerMovement> ().GetSneaking ()){
+				Debug.Log ("Enemy is Triggered");
+				triggered = true;
+			}
 		}
 	}
 
