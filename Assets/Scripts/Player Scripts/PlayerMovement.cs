@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 	[SerializeField]
@@ -10,8 +11,11 @@ public class PlayerMovement : MonoBehaviour {
 	bool running, sneaking;
 	Vector2 pos;
 	Vector3 mousePos, cameraOffset;
+	GameObject ImageHolder;
+	public Sprite walkingImg, runningImg, sneakingImg;
 	// Use this for initialization
 	void Start () {
+		ImageHolder = GameObject.Find ("MovementState").gameObject;
 		pStats = gameObject.GetComponent<PlayerStats>();
 		movementSpeed = .05f;
 		pos = new Vector2 (0,0);
@@ -49,6 +53,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.LeftShift) && pStats.GetStamina() > 0) {
 			movementSpeed = .1f;
 			running = true;
+			ImageHolder.GetComponent<Image> ().sprite = runningImg;
 		}
 		if (Input.GetKeyUp (KeyCode.LeftShift) || pStats.GetStamina() < 0) {
 			running = false;
@@ -56,12 +61,14 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Z)) {
 			movementSpeed = .025f;
 			sneaking = true;
+			ImageHolder.GetComponent<Image> ().sprite = sneakingImg;
 		}
 		if (Input.GetKeyUp (KeyCode.Z)) {
 			sneaking = false;
 		}
 		if (!running && !sneaking) {
 			movementSpeed = .05f;
+			ImageHolder.GetComponent<Image> ().sprite = walkingImg;
 		}
 	}
 	void LateUpdate()

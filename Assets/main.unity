@@ -655,6 +655,24 @@ Prefab:
       value: 
       objectReference: {fileID: 1306740000156542, guid: af4e57a0b02be40928d479ce93c1d7c4,
         type: 2}
+    - target: {fileID: 114825059147476564, guid: 9fca55ee12d0c4fb3bd1015690c50570,
+        type: 2}
+      propertyPath: walkingImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 06cc49dbe51a24294b3aa3db095bf543,
+        type: 3}
+    - target: {fileID: 114825059147476564, guid: 9fca55ee12d0c4fb3bd1015690c50570,
+        type: 2}
+      propertyPath: runningImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 6bd94a4c32b60454ab5669803fc82a17,
+        type: 3}
+    - target: {fileID: 114825059147476564, guid: 9fca55ee12d0c4fb3bd1015690c50570,
+        type: 2}
+      propertyPath: sneakingImg
+      value: 
+      objectReference: {fileID: 21300000, guid: f7587a3855b8a46e9918a404fcf67efd,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9fca55ee12d0c4fb3bd1015690c50570, type: 2}
   m_IsPrefabParent: 0
@@ -950,7 +968,7 @@ GameObject:
   - component: {fileID: 1183514839}
   - component: {fileID: 1183514838}
   m_Layer: 5
-  m_Name: Image
+  m_Name: MovementState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,7 +1011,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f7587a3855b8a46e9918a404fcf67efd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
