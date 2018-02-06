@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour {
     public GameObject[] spawners;
-    Vector2 posToSpawnEnemy;
+	public GameObject enemy;
+	Transform posToSpawnEnemy;
+	bool canSpawn;
     void Start()
     {
-        posToSpawnEnemy = new Vector2(0, 0);
+		posToSpawnEnemy = spawners[GetClosestSpawn()].transform; 
+		canSpawn = true;
+		StartCoroutine (SpawnEnemy ());
     }
     // Update is called once per frame
-    void Update ()
+    void FixedUpdate ()
     {
-        posToSpawnEnemy = spawners[GetClosestSpawn()].transform.position;
+        posToSpawnEnemy = spawners[GetClosestSpawn()].transform;
 	}
 
     public int GetClosestSpawn()
@@ -29,4 +33,11 @@ public class EnemySpawn : MonoBehaviour {
         }
         return d;
     }
+	IEnumerator SpawnEnemy(){
+		while (canSpawn) {
+			Instantiate (enemy, posToSpawnEnemy);
+			Debug.Log ("Spawned Enemy");
+			yield return new WaitForSecondsRealtime (5);
+		}yield return null;
+	}
 }

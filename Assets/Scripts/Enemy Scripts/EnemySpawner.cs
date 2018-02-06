@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour {
 	void Update () {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, lookAt.position);
         distance = hit.distance;
+		//Debug.Log (gameObject.name + ": " + distance);
 	}
 
     public float GetDistanceFromPlayer()

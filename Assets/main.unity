@@ -446,35 +446,35 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4665494785664008, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
+    - target: {fileID: 4858348559224338, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.958
       objectReference: {fileID: 0}
-    - target: {fileID: 4665494785664008, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
+    - target: {fileID: 4858348559224338, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.036
       objectReference: {fileID: 0}
-    - target: {fileID: 4665494785664008, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
+    - target: {fileID: 4858348559224338, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4665494785664008, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
+    - target: {fileID: 4858348559224338, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4665494785664008, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
+    - target: {fileID: 4858348559224338, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4665494785664008, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
+    - target: {fileID: 4858348559224338, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4665494785664008, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
+    - target: {fileID: 4858348559224338, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4665494785664008, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
+    - target: {fileID: 4858348559224338, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
@@ -604,12 +604,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467445012}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 824058a7dbf883a478c0f25fa8c175b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawners: []
+  spawners:
+  - {fileID: 1950916640}
+  - {fileID: 1502046777}
+  enemy: {fileID: 1912864785350562, guid: ab1e0cebb6068e24197299bf58724c19, type: 2}
 --- !u!1001 &498535527
 Prefab:
   m_ObjectHideFlags: 0
@@ -794,23 +797,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &921793063 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1835987283706870, guid: ab1e0cebb6068e24197299bf58724c19,
-    type: 2}
-  m_PrefabInternal: {fileID: 339336356}
---- !u!114 &921793066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 921793063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 524628ea7c73f4ca9818997fb385def5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggered: 0
 --- !u!1 &1042388079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1531,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1502046777}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57a71196b08410741876ea92464bebbe, type: 3}
   m_Name: 
@@ -1690,7 +1676,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1950916640}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57a71196b08410741876ea92464bebbe, type: 3}
   m_Name: 
