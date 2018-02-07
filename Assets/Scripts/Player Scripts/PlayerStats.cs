@@ -67,9 +67,14 @@ public class PlayerStats : MonoBehaviour {
 	}
     public void AddAmmo(int ammoToAdd)
     {
-        currAmmo += ammoToAdd;
-		currAmmoStored -= ammoToAdd;
-		Debug.Log ("Ammo stored: " + currAmmoStored);
+		if (currAmmoStored - ammoToAdd >= 0) {
+			currAmmo += ammoToAdd;
+			currAmmoStored -= ammoToAdd;
+			Debug.Log ("Ammo stored: " + currAmmoStored);
+		} else {
+			currAmmo += currAmmoStored;
+			currAmmoStored = 0;
+		}
     }
 	public void AddToStoredAmmo(int amountToAdd)
 	{
