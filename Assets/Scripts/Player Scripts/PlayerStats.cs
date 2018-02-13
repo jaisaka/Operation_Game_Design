@@ -36,7 +36,10 @@ public class PlayerStats : MonoBehaviour {
 			currHealth = maxHealth;
 		}
 		if (pMov.GetRunning ()) {
-			currStamina -= 1;
+			currStamina -= 2;
+		}
+		if (!pMov.GetRunning ()) {
+			currStamina += 1;
 		}
 	}
 	void OnTriggerEnter2D(Collider2D other){
@@ -67,7 +70,7 @@ public class PlayerStats : MonoBehaviour {
 	}
     public void AddAmmo(int ammoToAdd)
     {
-		if (currAmmoStored - ammoToAdd >= 0) {
+		if (currAmmoStored >= ammoToAdd) {
 			currAmmo += ammoToAdd;
 			currAmmoStored -= ammoToAdd;
 			Debug.Log ("Ammo stored: " + currAmmoStored);

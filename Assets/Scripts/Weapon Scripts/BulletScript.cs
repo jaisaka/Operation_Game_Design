@@ -13,12 +13,12 @@ public class BulletScript : MonoBehaviour {
 	void Start () {
         pShoot = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
         pStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
-        fireState = pShoot.GetFireMode();
+        fireState = pShoot.GetFireModeIndex();
         switch (fireState)
         {
-            case 0: dmg = 20; break;
+            case 0: dmg = 25; break;
             case 1: dmg = 10; break;
-            case 2: dmg = 15; break;
+            case 2: dmg = 20; break;
             default: break;
         }
 		timer = 0;

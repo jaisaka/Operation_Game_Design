@@ -55,10 +55,18 @@ public class PlayerShoot : MonoBehaviour {
         attackInst.transform.localRotation = Quaternion.Euler(0, 0, 0);
         attackInst.transform.SetParent(null);
     }
-    public int GetFireMode()
+    public int GetFireModeIndex()
     {
         return fireModeIndex;
     }
+	public string GetFireModeString()
+	{
+		string ret = "";
+		if (GetFireModeIndex () == 0) ret = "Semi-Auto"; 
+		if (GetFireModeIndex () == 1) ret = "Full-Auto";
+		if (GetFireModeIndex () == 2) ret = "Burst";
+		return ret;
+	}
     IEnumerator Burst()
 	{
 		if (pStats.GetAmmo () >= 3) {
