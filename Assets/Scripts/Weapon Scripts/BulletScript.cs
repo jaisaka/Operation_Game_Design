@@ -11,7 +11,7 @@ public class BulletScript : MonoBehaviour {
     PlayerStats pStats;
 	// Use this for initialization
 	void Start () {
-        pShoot = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+        pShoot = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerShoot>();
         pStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         fireState = pShoot.GetFireModeIndex();
         switch (fireState)

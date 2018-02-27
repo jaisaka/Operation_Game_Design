@@ -10,7 +10,7 @@ public class PlayerShoot : MonoBehaviour {
 	float timer;
 	// Use this for initialization
 	void Start () {
-        pStats = gameObject.GetComponent<PlayerStats>();
+		pStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 		fireModeIndex = 0;
 		timer = 0;
 	}
