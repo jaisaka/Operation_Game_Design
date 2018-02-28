@@ -1750,6 +1750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1306740000156542, guid: af4e57a0b02be40928d479ce93c1d7c4, type: 2}
   fireModeIndex: 0
+  gunny: {fileID: 11400000, guid: 9fef9321a73614a1080c97067c7d8d31, type: 2}
 --- !u!1 &1950916640
 GameObject:
   m_ObjectHideFlags: 0

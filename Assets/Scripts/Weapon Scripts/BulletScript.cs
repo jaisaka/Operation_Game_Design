@@ -14,13 +14,7 @@ public class BulletScript : MonoBehaviour {
         pShoot = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerShoot>();
         pStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         fireState = pShoot.GetFireModeIndex();
-        switch (fireState)
-        {
-            case 0: dmg = 25; break;
-            case 1: dmg = 10; break;
-            case 2: dmg = 20; break;
-            default: break;
-        }
+		dmg = pShoot.GetDamage ();
 		timer = 0;
 		gameObject.transform.Rotate (new Vector3 (0, 0, 90));
         pStats.ReduceAmmo();

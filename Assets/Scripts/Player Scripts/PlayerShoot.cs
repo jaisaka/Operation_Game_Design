@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour {
 	public GameObject bullet;
 	public int fireModeIndex;
+	string [] fireModes;
+	int damage;
+	string gunName;
+	Sprite gSpr;
+	public Gun gunny;
     PlayerStats pStats;
 	bool justFired;
 	float timer;
@@ -12,15 +17,20 @@ public class PlayerShoot : MonoBehaviour {
 	void Start () {
 		pStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 		fireModeIndex = 0;
+		fireModes = gunny.fireModes;
+		damage = gunny.damagePerShot;
+		gunName = gunny.objName;
+		gSpr = gunny.gunSprite;
+		gameObject.GetComponent<SpriteRenderer> ().sprite = gSpr;
 		timer = 0;
 	}
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.F)) {
-			if (fireModeIndex < 3) {
+			if (fireModeIndex < fireModes.Length) {
 				fireModeIndex++;
 			}
-			if (fireModeIndex >= 3) {
+			if (fireModeIndex >= fireModes.Length) {
 				fireModeIndex = 0;
 			}
 		}
@@ -62,10 +72,11 @@ public class PlayerShoot : MonoBehaviour {
 	public string GetFireModeString()
 	{
 		string ret = "";
-		if (GetFireModeIndex () == 0) ret = "Semi-Auto"; 
-		if (GetFireModeIndex () == 1) ret = "Full-Auto";
-		if (GetFireModeIndex () == 2) ret = "Burst";
+		ret = fireModes [GetFireModeIndex ()];
 		return ret;
+	}
+	public int GetDamage(){
+		return damage;
 	}
     IEnumerator Burst()
 	{
