@@ -5,43 +5,62 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour {
 	public GameObject bullet;
 	public int fireModeIndex;
-	string [] fireModes;
-	int damage;
-	string gunName;
-	Sprite gSpr;
+	public int gunIndex;
+	public Gun[] guns;
+	public int damage;
+	public string gunName;
+	public Sprite gSpr;
 	public Gun gunny;
     PlayerStats pStats;
 	bool justFired;
 	float timer;
 	// Use this for initialization
 	void Start () {
+		gunny = guns [0];
 		pStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 		fireModeIndex = 0;
-		fireModes = gunny.fireModes;
-		damage = gunny.damagePerShot;
-		gunName = gunny.objName;
-		gSpr = gunny.gunSprite;
-		gameObject.GetComponent<SpriteRenderer> ().sprite = gSpr;
+		gunIndex = 0;
+		UpdateGun (gunIndex);
 		timer = 0;
+		Debug.Log (guns.Length);
 	}
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.F)) {
-			if (fireModeIndex < fireModes.Length) {
+		if (Input.GetKeyDown (KeyCode.V)) {
+			if (fireModeIndex < gunny.fireModes.Length) {
 				fireModeIndex++;
 			}
-			if (fireModeIndex >= fireModes.Length) {
+			if (fireModeIndex >= gunny.fireModes.Length) {
 				fireModeIndex = 0;
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.Space) && fireModeIndex == 0 && pStats.GetAmmo() > 0 && !justFired) {
+		if (Input.GetKeyDown (KeyCode.B)) {
+			if (gunIndex < guns.Length-1) {
+				gunIndex++;
+				UpdateGun (gunIndex);
+			}
+			if (gunIndex == guns.Length) {
+				gunIndex = 0;
+				UpdateGun (gunIndex);
+			}
+			fireModeIndex = 0;
+		}
+		if (gameObject.GetComponentInParent<Transform> ().rotation.z > 0 && gameObject.GetComponent<SpriteRenderer>().flipX!=true) {
+			gameObject.GetComponent<SpriteRenderer> ().flipX = true;
+			Debug.Log ("Flipped!+");
+		}   
+		if(gameObject.GetComponentInParent<Transform> ().rotation.z < 0 && gameObject.GetComponent<SpriteRenderer>().flipX==true) {
+			gameObject.GetComponent<SpriteRenderer> ().flipX = false;
+			Debug.Log ("Flipped!-");
+		}
+		if (Input.GetKeyDown (KeyCode.Space) && GetFireModeString() == "Semi-Auto" && pStats.GetAmmo() > 0 && !justFired) {
 			InstantiateBullet ();
 			justFired = true;
 		}
-		if (Input.GetKey (KeyCode.Space) && fireModeIndex == 1 && pStats.GetAmmo() > 0) {
+		if (Input.GetKey (KeyCode.Space) && GetFireModeString() == "Full-Auto" && pStats.GetAmmo() > 0) {
 			InstantiateBullet ();
 		}
-		if (Input.GetKeyDown (KeyCode.Space) && fireModeIndex == 2 && pStats.GetAmmo() > 0) {
+		if (Input.GetKeyDown (KeyCode.Space) && GetFireModeString() == "Burst" && pStats.GetAmmo() > 0) {
             StartCoroutine(Burst());
 		}
         if (Input.GetKeyDown(KeyCode.R))
@@ -72,11 +91,18 @@ public class PlayerShoot : MonoBehaviour {
 	public string GetFireModeString()
 	{
 		string ret = "";
-		ret = fireModes [GetFireModeIndex ()];
+		ret = gunny.fireModes [GetFireModeIndex ()];
 		return ret;
 	}
 	public int GetDamage(){
 		return damage;
+	}
+	public void UpdateGun(int index){
+		gunny = guns [gunIndex];
+		damage = guns [index].damagePerShot;
+		gunName = guns [index].name;
+		gSpr = guns [index].gunSprite;
+		gameObject.GetComponent<SpriteRenderer> ().sprite = gSpr;
 	}
     IEnumerator Burst()
 	{
