@@ -9,6 +9,7 @@ public class BulletScript : MonoBehaviour {
     int fireState, dmg;
     PlayerShoot pShoot;
     PlayerStats pStats;
+	public GameObject hitFx;
 	// Use this for initialization
 	void Start () {
         pShoot = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerShoot>();
@@ -47,6 +48,7 @@ public class BulletScript : MonoBehaviour {
 			}
 		}
 		if (collision.tag != "Player" && collision.tag != "EnemyRadius") {
+			Instantiate (hitFx, gameObject.transform);
 			GameObject.Destroy (gameObject);
 		}
 

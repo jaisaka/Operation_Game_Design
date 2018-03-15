@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour {
 		if (pMov.GetRunning ()) {
 			currStamina -= 2;
 		}
-		if (!pMov.GetRunning ()) {
+		if (!pMov.GetRunning () && currStamina<maxStamina) {
 			currStamina += 1;
 		}
 	}

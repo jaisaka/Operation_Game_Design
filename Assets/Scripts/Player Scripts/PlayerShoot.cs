@@ -45,11 +45,11 @@ public class PlayerShoot : MonoBehaviour {
 			}
 			fireModeIndex = 0;
 		}
-		if (gameObject.GetComponentInParent<Transform> ().rotation.z > 0 && gameObject.GetComponent<SpriteRenderer>().flipX!=true) {
+		if (gameObject.GetComponentInParent<Transform> ().rotation.eulerAngles.z < 180 && gameObject.GetComponent<SpriteRenderer>().flipX!=true) {
 			gameObject.GetComponent<SpriteRenderer> ().flipX = true;
 			Debug.Log ("Flipped!+");
 		}   
-		if(gameObject.GetComponentInParent<Transform> ().rotation.z < 0 && gameObject.GetComponent<SpriteRenderer>().flipX==true) {
+		if(gameObject.GetComponentInParent<Transform> ().rotation.eulerAngles.z > 180 && gameObject.GetComponent<SpriteRenderer>().flipX==true) {
 			gameObject.GetComponent<SpriteRenderer> ().flipX = false;
 			Debug.Log ("Flipped!-");
 		}

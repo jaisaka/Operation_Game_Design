@@ -1470,6 +1470,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &1447833130
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4849291986512448, guid: 0eb6e63115f36416c999e5d5d831256e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849291986512448, guid: 0eb6e63115f36416c999e5d5d831256e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849291986512448, guid: 0eb6e63115f36416c999e5d5d831256e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849291986512448, guid: 0eb6e63115f36416c999e5d5d831256e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849291986512448, guid: 0eb6e63115f36416c999e5d5d831256e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849291986512448, guid: 0eb6e63115f36416c999e5d5d831256e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849291986512448, guid: 0eb6e63115f36416c999e5d5d831256e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849291986512448, guid: 0eb6e63115f36416c999e5d5d831256e, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0eb6e63115f36416c999e5d5d831256e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1473280705
 Prefab:
   m_ObjectHideFlags: 0
@@ -1760,6 +1802,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9fef9321a73614a1080c97067c7d8d31, type: 2}
   - {fileID: 11400000, guid: b38bd4e5b93b044109c6747fac7155e3, type: 2}
   - {fileID: 11400000, guid: b4e43d19fbe86420e84a5105bd979f65, type: 2}
+  damage: 0
+  gunName: 
+  gSpr: {fileID: 0}
   gunny: {fileID: 0}
 --- !u!1 &1950916640
 GameObject:
